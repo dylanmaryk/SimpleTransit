@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8BFA14C693C3CE7B965F9CD6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338F7F20AF18B959A9F1FE3 /* Pods.framework */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
 		FCF5624E1C95D6F900287B75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624D1C95D6F900287B75 /* ViewController.swift */; };
 		FCF562511C95D6F900287B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF5624F1C95D6F900287B75 /* Main.storyboard */; };
@@ -26,6 +27,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07D6B54ED6DCA521C0C39FED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8338F7F20AF18B959A9F1FE3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF5624B1C95D6F900287B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF5624D1C95D6F900287B75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BFA14C693C3CE7B965F9CD6 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +61,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D741B3B1C74EC5CDC376840 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8338F7F20AF18B959A9F1FE3 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8A8A8C853833A82B5AF82DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07D6B54ED6DCA521C0C39FED /* Pods.debug.xcconfig */,
+				77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FCF5623F1C95D6F900287B75 = {
 			isa = PBXGroup;
 			children = (
 				FCF5624A1C95D6F900287B75 /* SimpleTransit */,
 				FCF5625F1C95D6F900287B75 /* SimpleTransitTests */,
 				FCF562491C95D6F900287B75 /* Products */,
+				C8A8A8C853833A82B5AF82DC /* Pods */,
+				4D741B3B1C74EC5CDC376840 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +127,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCF562651C95D6F900287B75 /* Build configuration list for PBXNativeTarget "SimpleTransit" */;
 			buildPhases = (
+				980F581C9D93993AE6436E28 /* Check Pods Manifest.lock */,
 				FCF562441C95D6F900287B75 /* Sources */,
 				FCF562451C95D6F900287B75 /* Frameworks */,
 				FCF562461C95D6F900287B75 /* Resources */,
+				7BC633417638767129BB8762 /* Embed Pods Frameworks */,
+				C845AA9551982BA7B52DFD0D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +218,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BC633417638767129BB8762 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		980F581C9D93993AE6436E28 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C845AA9551982BA7B52DFD0D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCF562441C95D6F900287B75 /* Sources */ = {
@@ -325,6 +400,7 @@
 		};
 		FCF562661C95D6F900287B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07D6B54ED6DCA521C0C39FED /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleTransit/Info.plist;
@@ -336,6 +412,7 @@
 		};
 		FCF562671C95D6F900287B75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleTransit/Info.plist;
@@ -388,6 +465,7 @@
 				FCF562671C95D6F900287B75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCF562681C95D6F900287B75 /* Build configuration list for PBXNativeTarget "SimpleTransitTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +474,7 @@
 				FCF5626A1C95D6F900287B75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
