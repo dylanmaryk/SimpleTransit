@@ -23,6 +23,8 @@ class DataModel {
                     return
             }
             
+            var routes = [Route]()
+            
             for JSONRoute in JSONRoutes {
                 let type = JSONRoute["type"] as? String
                 var providerName = JSONRoute["provider"] as? String
@@ -59,15 +61,26 @@ class DataModel {
                         let description = JSONSegment["description"] as? String
                         let color = JSONSegment["color"] as? String
                         let iconURL = JSONSegment["icon_url"] as? String
-                        let polyline = JSONSegment["polyline"] as? String
+                        let polyline = JSONSegment["polyline"] as? String // Temporarily just hold as string
                         let segment = Segment(name: segmentName, stops: stops, travelMode: travelMode, description: description, color: color, iconURL: iconURL, polyline: polyline)
                         segments.append(segment)
                     }
                 }
                 
-                let properties = JSONRoute["properties"] as? [String: AnyObject]
-                let price = JSONRoute["price"] as? [String: AnyObject]
+                let properties = JSONRoute["properties"] as? [String: AnyObject] // Temporarily just hold arbitrary data
+                var price: (currency: String, amount: Double)?
+                
+                if let validPrice = JSONRoute["price"] as? [String: AnyObject],
+                    let currency = validPrice["currency"] as? String,
+                    let amount = validPrice["amount"] as? Double {
+                        price = (currency, amount)
+                }
+                
+                let route = Route(type: type, providerName: providerName, providerURL: providerURL, segments: segments, properties: properties, price: price)
+                routes.append(route)
             }
+            
+            self.delegate?.routesUpdated(routes)
         }
     }
 }

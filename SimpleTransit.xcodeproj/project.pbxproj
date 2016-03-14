@@ -89,9 +89,9 @@
 		FCC30CB61C96162F0046FFEF /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
+				FC5F46C61C963614004AB634 /* Route.swift */,
 				FCC30CB91C9621CA0046FFEF /* Segment.swift */,
 				FCC30CB71C9616450046FFEF /* Stop.swift */,
-				FC5F46C61C963614004AB634 /* Route.swift */,
 			);
 			name = DataClasses;
 			sourceTree = "<group>";

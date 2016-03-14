@@ -12,7 +12,9 @@ class ViewController: UIViewController, DataModelDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataModel().updateRoutes()
+        let dataModel = DataModel()
+        dataModel.delegate = self
+        dataModel.updateRoutes()
     }
     
     func routesUpdated(routes: [Route]) {
