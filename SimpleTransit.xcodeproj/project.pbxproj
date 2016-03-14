@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		8BFA14C693C3CE7B965F9CD6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338F7F20AF18B959A9F1FE3 /* Pods.framework */; };
+		FC5F46C71C963614004AB634 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F46C61C963614004AB634 /* Route.swift */; };
+		FCC30CB81C9616450046FFEF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB71C9616450046FFEF /* Stop.swift */; };
+		FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB91C9621CA0046FFEF /* Segment.swift */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
 		FCF5624E1C95D6F900287B75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624D1C95D6F900287B75 /* ViewController.swift */; };
 		FCF562511C95D6F900287B75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF5624F1C95D6F900287B75 /* Main.storyboard */; };
 		FCF562531C95D6F900287B75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCF562521C95D6F900287B75 /* Assets.xcassets */; };
 		FCF562561C95D6F900287B75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF562541C95D6F900287B75 /* LaunchScreen.storyboard */; };
 		FCF562611C95D6F900287B75 /* SimpleTransitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF562601C95D6F900287B75 /* SimpleTransitTests.swift */; };
+		FCF5626C1C95D7A800287B75 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5626B1C95D7A800287B75 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +34,9 @@
 		07D6B54ED6DCA521C0C39FED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8338F7F20AF18B959A9F1FE3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5F46C61C963614004AB634 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = DataClasses/Route.swift; sourceTree = "<group>"; };
+		FCC30CB71C9616450046FFEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = DataClasses/Stop.swift; sourceTree = "<group>"; };
+		FCC30CB91C9621CA0046FFEF /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segment.swift; path = DataClasses/Segment.swift; sourceTree = "<group>"; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF5624B1C95D6F900287B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF5624D1C95D6F900287B75 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +47,7 @@
 		FCF5625C1C95D6F900287B75 /* SimpleTransitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTransitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF562601C95D6F900287B75 /* SimpleTransitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTransitTests.swift; sourceTree = "<group>"; };
 		FCF562621C95D6F900287B75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCF5626B1C95D7A800287B75 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FCC30CB61C96162F0046FFEF /* DataClasses */ = {
+			isa = PBXGroup;
+			children = (
+				FCC30CB91C9621CA0046FFEF /* Segment.swift */,
+				FCC30CB71C9616450046FFEF /* Stop.swift */,
+				FC5F46C61C963614004AB634 /* Route.swift */,
+			);
+			name = DataClasses;
+			sourceTree = "<group>";
+		};
 		FCF5623F1C95D6F900287B75 = {
 			isa = PBXGroup;
 			children = (
@@ -101,8 +119,10 @@
 		FCF5624A1C95D6F900287B75 /* SimpleTransit */ = {
 			isa = PBXGroup;
 			children = (
+				FCC30CB61C96162F0046FFEF /* DataClasses */,
 				FCF5624B1C95D6F900287B75 /* AppDelegate.swift */,
 				FCF5624D1C95D6F900287B75 /* ViewController.swift */,
+				FCF5626B1C95D7A800287B75 /* DataModel.swift */,
 				FCF5624F1C95D6F900287B75 /* Main.storyboard */,
 				FCF562521C95D6F900287B75 /* Assets.xcassets */,
 				FCF562541C95D6F900287B75 /* LaunchScreen.storyboard */,
@@ -273,7 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF5624E1C95D6F900287B75 /* ViewController.swift in Sources */,
+				FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */,
 				FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */,
+				FC5F46C71C963614004AB634 /* Route.swift in Sources */,
+				FCF5626C1C95D7A800287B75 /* DataModel.swift in Sources */,
+				FCC30CB81C9616450046FFEF /* Stop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

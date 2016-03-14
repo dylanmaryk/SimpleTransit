@@ -14,10 +14,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIColor_Hex_Swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>57CFC4DF5A94826729A3A532FC59EE52</key>
+		<key>13199F7C9E2B5808027F1E4F94FFE336</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>54BE77894BD0D4DDF9BCD86B780B3A92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
