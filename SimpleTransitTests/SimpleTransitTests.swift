@@ -9,28 +9,33 @@
 import XCTest
 @testable import SimpleTransit
 
-class SimpleTransitTests: XCTestCase {
+class SimpleTransitTests: XCTestCase, DataModelDelegate {
+    var expectation: XCTestExpectation?
+    var routes = [Route]()
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        expectation = expectationWithDescription("DataModel updates routes")
+        
+        let dataModel = DataModel()
+        dataModel.delegate = self
+        dataModel.updateRoutes()
+        
+        self.waitForExpectationsWithTimeout(10, handler: nil)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func routesUpdated(routes: [Route]) {
+        self.routes = routes
+        
+        expectation?.fulfill()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testPriceFormatted() {
+        XCTAssertEqual(routes.first?.priceFormatted, "EUR 270.00")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testOriginFromName() {
+        XCTAssertEqual(routes[3].origin, "Torstraße 103, 10119 Berlin, Deutschland")
     }
-    
 }
