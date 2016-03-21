@@ -28,4 +28,21 @@ class Stop {
             dateTime = dateFormatter.dateFromString(dateTimeStringToConvert) // Date differs from original data according to timezone
         }
     }
+    
+    func createName() {
+        if name != nil {
+            return
+        }
+        
+        guard let existingLocation = location else {
+            return
+        }
+        
+        LocationManager.sharedInstance.reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
+            if let geocodeInfo = reverseGeocodeInfo,
+                address = geocodeInfo["formattedAddress"] as? String {
+                    self.name = address
+            }
+        }
+    }
 }

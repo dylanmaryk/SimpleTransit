@@ -16,6 +16,8 @@ class Route {
     var segments: [Segment]
     var properties: [String: AnyObject]?
     var price: (currency: String, amount: Double)?
+    var origin: String?
+    var destination: String?
     
     init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type
@@ -25,5 +27,17 @@ class Route {
         self.segments = segments
         self.properties = properties
         self.price = price
+        
+        createOriginDestination()
+    }
+    
+    func createOriginDestination() {
+        if let firstStop = segments.first?.stops.first {
+            firstStop.createName()
+        }
+        
+        if let lastStop = segments.last?.stops.last {
+            lastStop.createName()
+        }
     }
 }

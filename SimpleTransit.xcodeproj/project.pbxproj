@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8BFA14C693C3CE7B965F9CD6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338F7F20AF18B959A9F1FE3 /* Pods.framework */; };
 		FC5F46C71C963614004AB634 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F46C61C963614004AB634 /* Route.swift */; };
+		FC7647F31CA014C30033B219 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FC7647F11CA014C30033B219 /* LICENSE */; };
+		FC7647F41CA014C30033B219 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7647F21CA014C30033B219 /* LocationManager.swift */; };
 		FCC30CB81C9616450046FFEF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB71C9616450046FFEF /* Stop.swift */; };
 		FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB91C9621CA0046FFEF /* Segment.swift */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
@@ -35,6 +37,8 @@
 		77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8338F7F20AF18B959A9F1FE3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5F46C61C963614004AB634 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = DataClasses/Route.swift; sourceTree = "<group>"; };
+		FC7647F11CA014C30033B219 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FC7647F21CA014C30033B219 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FCC30CB71C9616450046FFEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = DataClasses/Stop.swift; sourceTree = "<group>"; };
 		FCC30CB91C9621CA0046FFEF /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segment.swift; path = DataClasses/Segment.swift; sourceTree = "<group>"; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +90,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC7647F01CA014A80033B219 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FC7647F21CA014C30033B219 /* LocationManager.swift */,
+				FC7647F11CA014C30033B219 /* LICENSE */,
+			);
+			name = LocationManager;
+			sourceTree = "<group>";
+		};
 		FCC30CB61C96162F0046FFEF /* DataClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 			children = (
 				FCF5624A1C95D6F900287B75 /* SimpleTransit */,
 				FCF5625F1C95D6F900287B75 /* SimpleTransitTests */,
+				FC7647F01CA014A80033B219 /* LocationManager */,
 				FCF562491C95D6F900287B75 /* Products */,
 				C8A8A8C853833A82B5AF82DC /* Pods */,
 				4D741B3B1C74EC5CDC376840 /* Frameworks */,
@@ -226,6 +240,7 @@
 			files = (
 				FCF562561C95D6F900287B75 /* LaunchScreen.storyboard in Resources */,
 				FCF562531C95D6F900287B75 /* Assets.xcassets in Resources */,
+				FC7647F31CA014C30033B219 /* LICENSE in Resources */,
 				FCF562511C95D6F900287B75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +310,7 @@
 				FCF5624E1C95D6F900287B75 /* ViewController.swift in Sources */,
 				FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */,
 				FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */,
+				FC7647F41CA014C30033B219 /* LocationManager.swift in Sources */,
 				FC5F46C71C963614004AB634 /* Route.swift in Sources */,
 				FCF5626C1C95D7A800287B75 /* DataModel.swift in Sources */,
 				FCC30CB81C9616450046FFEF /* Stop.swift in Sources */,
