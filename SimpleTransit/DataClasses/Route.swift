@@ -16,8 +16,35 @@ class Route {
     var segments: [Segment]
     var properties: [String: AnyObject]?
     var price: (currency: String, amount: Double)?
-    var origin: String?
-    var destination: String?
+    var priceFormatted: String? {
+        get {
+            guard let priceCurrency = price?.currency,
+                priceAmount = price?.amount else {
+                    return nil
+            }
+            
+            let priceAmountString = NSString(format: " %.2f", priceAmount) as String
+            return priceCurrency + priceAmountString
+        }
+    }
+    var origin: String? {
+        get {
+            guard let firstStop = getFirstStop() else {
+                return nil
+            }
+            
+            return firstStop.name
+        }
+    }
+    var destination: String? {
+        get {
+            guard let lastStop = getLastStop() else {
+                return nil
+            }
+            
+            return lastStop.name
+        }
+    }
     
     init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type
@@ -32,12 +59,20 @@ class Route {
     }
     
     func createOriginDestination() {
-        if let firstStop = segments.first?.stops.first {
+        if let firstStop = getFirstStop() {
             firstStop.createName()
         }
         
-        if let lastStop = segments.last?.stops.last {
+        if let lastStop = getLastStop() {
             lastStop.createName()
         }
+    }
+    
+    func getFirstStop() -> Stop? {
+        return segments.first?.stops.first
+    }
+    
+    func getLastStop() -> Stop? {
+        return segments.last?.stops.last
     }
 }

@@ -32,14 +32,14 @@ class DataModel {
                 var providerIconURL: String?
                 
                 if let validProvider = providerName,
-                    let JSONProviderAttributes = JSON["provider_attributes"] as? [String: [String: String]],
-                    let JSONProviderAttribute = JSONProviderAttributes[validProvider] {
+                    JSONProviderAttributes = JSON["provider_attributes"] as? [String: [String: String]],
+                    JSONProviderAttribute = JSONProviderAttributes[validProvider] {
                         if let iconURL = JSONProviderAttribute["provider_icon_url"] {
                             providerIconURL = iconURL
                         }
                         
                         if let iTunesURL = JSONProviderAttribute["ios_itunes_url"],
-                            let displayName = JSONProviderAttribute["display_name"] {
+                            displayName = JSONProviderAttribute["display_name"] {
                                 providerName = displayName
                                 providerURL = iTunesURL
                             }
@@ -77,8 +77,8 @@ class DataModel {
                 var price: (currency: String, amount: Double)?
                 
                 if let validPrice = JSONRoute["price"] as? [String: AnyObject],
-                    let currency = validPrice["currency"] as? String,
-                    let amount = validPrice["amount"] as? Double {
+                    currency = validPrice["currency"] as? String,
+                    amount = validPrice["amount"] as? Double {
                         price = (currency, amount)
                 }
                 

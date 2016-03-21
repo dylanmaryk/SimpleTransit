@@ -18,7 +18,7 @@ class Stop {
         self.name = name
         
         if let latToConvert = lat,
-            let lngToConvert = lng {
+            lngToConvert = lng {
                 location = CLLocation(latitude: latToConvert, longitude: lngToConvert)
         }
         
