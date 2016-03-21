@@ -29,15 +29,21 @@ class DataModel {
                 let type = JSONRoute["type"] as? String
                 var providerName = JSONRoute["provider"] as? String
                 var providerURL: String?
+                var providerIconURL: String?
                 
                 if let validProvider = providerName,
                     let JSONProviderAttributes = JSON["provider_attributes"] as? [String: [String: String]],
-                    let JSONProviderAttribute = JSONProviderAttributes[validProvider],
-                    let iTunesURL = JSONProviderAttribute["ios_itunes_url"],
-                    let displayName = JSONProviderAttribute["display_name"] {
-                        providerName = displayName
-                        providerURL = iTunesURL
-                }
+                    let JSONProviderAttribute = JSONProviderAttributes[validProvider] {
+                        if let iconURL = JSONProviderAttribute["provider_icon_url"] {
+                            providerIconURL = iconURL
+                        }
+                        
+                        if let iTunesURL = JSONProviderAttribute["ios_itunes_url"],
+                            let displayName = JSONProviderAttribute["display_name"] {
+                                providerName = displayName
+                                providerURL = iTunesURL
+                            }
+                    }
                 
                 var segments = [Segment]()
                 
@@ -76,7 +82,7 @@ class DataModel {
                         price = (currency, amount)
                 }
                 
-                let route = Route(type: type, providerName: providerName, providerURL: providerURL, segments: segments, properties: properties, price: price)
+                let route = Route(type: type, providerName: providerName, providerURL: providerURL, providerIconURL: providerIconURL, segments: segments, properties: properties, price: price)
                 routes.append(route)
             }
             

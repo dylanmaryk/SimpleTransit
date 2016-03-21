@@ -12,14 +12,16 @@ class Route {
     var type: String?
     var providerName: String?
     var providerURL: String?
+    var providerIconURL: String?
     var segments: [Segment]
     var properties: [String: AnyObject]?
     var price: (currency: String, amount: Double)?
     
-    init(type: String?, providerName: String?, providerURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
+    init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type
         self.providerName = providerName
         self.providerURL = providerURL
+        self.providerIconURL = providerIconURL
         self.segments = segments
         self.properties = properties
         self.price = price
