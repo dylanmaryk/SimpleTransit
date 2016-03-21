@@ -10,32 +10,50 @@ import XCTest
 @testable import SimpleTransit
 
 class SimpleTransitTests: XCTestCase, DataModelDelegate {
-    var expectation: XCTestExpectation?
+    var expectationDataModel: XCTestExpectation?
     var routes = [Route]()
     
     override func setUp() {
         super.setUp()
         
-        expectation = expectationWithDescription("DataModel updates routes")
+        expectationDataModel = expectationWithDescription("DataModel updates routes")
         
         let dataModel = DataModel()
         dataModel.delegate = self
         dataModel.updateRoutes()
         
-        self.waitForExpectationsWithTimeout(10, handler: nil)
+        waitForExpectationsWithTimeout(10, handler: nil)
     }
     
     func routesUpdated(routes: [Route]) {
         self.routes = routes
         
-        expectation?.fulfill()
+        expectationDataModel?.fulfill()
     }
     
     func testPriceFormatted() {
         XCTAssertEqual(routes.first?.priceFormatted, "EUR 270.00")
     }
     
+    func testOriginFromLocation() {
+        let expectation = expectationWithDescription("Route creates origin from location")
+        
+        routes.first?.createOrigin { (origin: String?) -> Void in
+            XCTAssertEqual(origin, "Torstraße 105, 10119 Berlin, Germany")
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+    }
+    
     func testOriginFromName() {
-        XCTAssertEqual(routes[3].origin, "Torstraße 103, 10119 Berlin, Deutschland")
+        let expectation = expectationWithDescription("Route creates origin from name")
+        
+        routes[3].createOrigin { (origin: String?) -> Void in
+            XCTAssertEqual(origin, "Torstraße 103, 10119 Berlin, Deutschland")
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
     }
 }

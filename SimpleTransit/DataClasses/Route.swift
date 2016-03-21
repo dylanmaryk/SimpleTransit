@@ -16,35 +16,7 @@ class Route {
     var segments: [Segment]
     var properties: [String: AnyObject]?
     var price: (currency: String, amount: Double)?
-    var priceFormatted: String? {
-        get {
-            guard let priceCurrency = price?.currency,
-                priceAmount = price?.amount else {
-                    return nil
-            }
-            
-            let priceAmountString = NSString(format: " %.2f", priceAmount) as String
-            return priceCurrency + priceAmountString
-        }
-    }
-    var origin: String? {
-        get {
-            guard let firstStop = getFirstStop() else {
-                return nil
-            }
-            
-            return firstStop.name
-        }
-    }
-    var destination: String? {
-        get {
-            guard let lastStop = getLastStop() else {
-                return nil
-            }
-            
-            return lastStop.name
-        }
-    }
+    var priceFormatted: String?
     
     init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type
@@ -55,24 +27,33 @@ class Route {
         self.properties = properties
         self.price = price
         
-        createOriginDestination()
+        if let priceCurrency = price?.currency,
+            priceAmount = price?.amount {
+                let priceAmountString = NSString(format: " %.2f", priceAmount) as String
+                priceFormatted = priceCurrency + priceAmountString
+        }
     }
     
-    func createOriginDestination() {
-        if let firstStop = getFirstStop() {
-            firstStop.createName()
+    func createOrigin(completion: (origin: String?) -> Void) {
+        guard let firstStop = getFirstStop() else {
+            completion(origin: nil)
+            return
         }
         
-        if let lastStop = getLastStop() {
-            lastStop.createName()
+        if let name = firstStop.name {
+            completion(origin: name)
+        }
+        
+        firstStop.createNameFromLocation { (name: String?) -> Void in
+            completion(origin: name)
         }
     }
     
-    func getFirstStop() -> Stop? {
+    private func getFirstStop() -> Stop? {
         return segments.first?.stops.first
     }
     
-    func getLastStop() -> Stop? {
+    private func getLastStop() -> Stop? {
         return segments.last?.stops.last
     }
 }

@@ -29,19 +29,18 @@ class Stop {
         }
     }
     
-    func createName() {
-        if name != nil {
-            return
-        }
-        
+    func createNameFromLocation(completion: (name: String?) -> Void) {
         guard let existingLocation = location else {
+            completion(name: nil)
             return
         }
         
         LocationManager.sharedInstance.reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
             if let geocodeInfo = reverseGeocodeInfo,
                 address = geocodeInfo["formattedAddress"] as? String {
-                    self.name = address
+                    completion(name: address)
+            } else {
+                completion(name: nil)
             }
         }
     }
