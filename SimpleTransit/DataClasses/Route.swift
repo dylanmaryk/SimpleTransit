@@ -42,10 +42,27 @@ class Route {
         
         if let name = firstStop.name {
             completion(origin: name)
+            return
         }
         
         firstStop.createNameFromLocation { (name: String?) -> Void in
             completion(origin: name)
+        }
+    }
+    
+    func createDestination(completion: (destination: String?) -> Void) {
+        guard let lastStop = getLastStop() else {
+            completion(destination: nil)
+            return
+        }
+        
+        if let name = lastStop.name {
+            completion(destination: name)
+            return
+        }
+        
+        lastStop.createNameFromLocation { (name: String?) -> Void in
+            completion(destination: name)
         }
     }
     

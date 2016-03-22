@@ -56,4 +56,15 @@ class SimpleTransitTests: XCTestCase, DataModelDelegate {
         
         waitForExpectationsWithTimeout(10, handler: nil)
     }
+    
+    func testDestinationFromName() {
+        let expectation = expectationWithDescription("Route creates destination from name")
+        
+        routes[3].createDestination { (destination: String?) -> Void in
+            XCTAssertEqual(destination, "Leipziger Platz 7, 10117 Berlin, Deutschland")
+            expectation.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+    }
 }
