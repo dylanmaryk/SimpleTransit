@@ -35,6 +35,10 @@ class SimpleTransitTests: XCTestCase, DataModelDelegate {
         XCTAssertEqual(routes.first?.priceFormatted, "EUR 270.00")
     }
     
+    func testJourneyTime() {
+        XCTAssertEqual(routes.first?.journeyTime, 21)
+    }
+    
     func testOriginFromLocation() {
         let expectation = expectationWithDescription("Route creates origin from location")
         
