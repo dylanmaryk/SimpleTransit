@@ -17,6 +17,7 @@ class Route {
     var properties: [String: AnyObject]?
     var price: (currency: String, amount: Double)?
     var priceFormatted: String?
+    var journeyTime: Int?
     
     init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type
@@ -32,6 +33,18 @@ class Route {
                 let priceAmountString = NSString(format: " %.2f", priceAmount) as String
                 priceFormatted = priceCurrency + priceAmountString
         }
+        
+        createJourneyTime();
+    }
+    
+    private func createJourneyTime() {
+        guard let startDateTime = getFirstStop()?.dateTime,
+            endDateTime = getLastStop()?.dateTime else {
+                return
+        }
+        
+        let journeyTimeSeconds = endDateTime.timeIntervalSinceDate(startDateTime)
+        journeyTime = Int(round(journeyTimeSeconds / 60))
     }
     
     func createOrigin(completion: (origin: String?) -> Void) {

@@ -19,7 +19,7 @@ class DataModel {
     func updateRoutes() {
         Alamofire.request(.GET, "https://raw.githubusercontent.com/allyapp/transit-app-task/master/data.json").responseJSON { response in
             guard let JSON = response.result.value as? [String: AnyObject],
-                let JSONRoutes = JSON["routes"] as? [[String: AnyObject]] else {
+                JSONRoutes = JSON["routes"] as? [[String: AnyObject]] else {
                     return
             }
             
@@ -37,13 +37,13 @@ class DataModel {
                         if let iconURL = JSONProviderAttribute["provider_icon_url"] {
                             providerIconURL = iconURL
                         }
-                        
+                    
                         if let iTunesURL = JSONProviderAttribute["ios_itunes_url"],
                             displayName = JSONProviderAttribute["display_name"] {
                                 providerName = displayName
                                 providerURL = iTunesURL
-                            }
-                    }
+                        }
+                }
                 
                 var segments = [Segment]()
                 

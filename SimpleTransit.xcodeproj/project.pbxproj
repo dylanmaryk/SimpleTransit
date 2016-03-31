@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8BFA14C693C3CE7B965F9CD6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8338F7F20AF18B959A9F1FE3 /* Pods.framework */; };
+		FC419BC71CADB87300FAE480 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FC419BC51CADB87300FAE480 /* LICENSE */; };
+		FC419BC81CADB87300FAE480 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC419BC61CADB87300FAE480 /* LocationManager.swift */; };
 		FC5F46C71C963614004AB634 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F46C61C963614004AB634 /* Route.swift */; };
-		FC7647F31CA014C30033B219 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FC7647F11CA014C30033B219 /* LICENSE */; };
-		FC7647F41CA014C30033B219 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7647F21CA014C30033B219 /* LocationManager.swift */; };
 		FCC30CB81C9616450046FFEF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB71C9616450046FFEF /* Stop.swift */; };
 		FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB91C9621CA0046FFEF /* Segment.swift */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
@@ -36,9 +36,9 @@
 		07D6B54ED6DCA521C0C39FED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		77A575D2AF5F6A08A2221F10 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8338F7F20AF18B959A9F1FE3 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC419BC51CADB87300FAE480 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = LocationManager/LICENSE; sourceTree = "<group>"; };
+		FC419BC61CADB87300FAE480 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = LocationManager/LocationManager.swift; sourceTree = "<group>"; };
 		FC5F46C61C963614004AB634 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = DataClasses/Route.swift; sourceTree = "<group>"; };
-		FC7647F11CA014C30033B219 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		FC7647F21CA014C30033B219 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		FCC30CB71C9616450046FFEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = DataClasses/Stop.swift; sourceTree = "<group>"; };
 		FCC30CB91C9621CA0046FFEF /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segment.swift; path = DataClasses/Segment.swift; sourceTree = "<group>"; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +93,8 @@
 		FC7647F01CA014A80033B219 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
-				FC7647F21CA014C30033B219 /* LocationManager.swift */,
-				FC7647F11CA014C30033B219 /* LICENSE */,
+				FC419BC61CADB87300FAE480 /* LocationManager.swift */,
+				FC419BC51CADB87300FAE480 /* LICENSE */,
 			);
 			name = LocationManager;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 			files = (
 				FCF562561C95D6F900287B75 /* LaunchScreen.storyboard in Resources */,
 				FCF562531C95D6F900287B75 /* Assets.xcassets in Resources */,
-				FC7647F31CA014C30033B219 /* LICENSE in Resources */,
+				FC419BC71CADB87300FAE480 /* LICENSE in Resources */,
 				FCF562511C95D6F900287B75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +310,7 @@
 				FCF5624E1C95D6F900287B75 /* ViewController.swift in Sources */,
 				FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */,
 				FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */,
-				FC7647F41CA014C30033B219 /* LocationManager.swift in Sources */,
+				FC419BC81CADB87300FAE480 /* LocationManager.swift in Sources */,
 				FC5F46C71C963614004AB634 /* Route.swift in Sources */,
 				FCF5626C1C95D7A800287B75 /* DataModel.swift in Sources */,
 				FCC30CB81C9616450046FFEF /* Stop.swift in Sources */,
