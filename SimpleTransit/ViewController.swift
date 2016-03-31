@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, DataModelDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, DataModelDelegate {
+    @IBOutlet var routeTableView: UITableView!
+    
+    var routes = [Route]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +22,18 @@ class ViewController: UIViewController, DataModelDelegate {
     }
     
     func routesUpdated(routes: [Route]) {
-        
+        self.routes = routes
+        routeTableView.reloadData()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return routes.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let routeCell = tableView.dequeueReusableCellWithIdentifier("RouteCell", forIndexPath: indexPath) as! RouteTableViewCell
+        let route = routes[indexPath.row]
+        routeCell.setupCell(route)
+        return routeCell
     }
 }
