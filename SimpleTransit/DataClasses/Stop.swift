@@ -35,7 +35,7 @@ class Stop {
             return
         }
         
-        LocationManager.sharedInstance.reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
+        LocationManager().reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
             if let geocodeInfo = reverseGeocodeInfo,
                 address = geocodeInfo["formattedAddress"] as? String {
                     completion(name: address)

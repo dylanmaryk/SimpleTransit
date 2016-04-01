@@ -93,7 +93,8 @@ class LocationManager: NSObject,CLLocationManagerDelegate {
     }
     
     
-    private override init(){
+    // private override init(){
+    override init() {
         
         super.init()
         
