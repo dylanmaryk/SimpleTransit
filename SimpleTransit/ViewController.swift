@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var routeTableView: UITableView!
     
     var routes = [Route]()
+    var routeSelected: Route?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,5 +36,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let route = routes[indexPath.row]
         routeCell.setupCell(route)
         return routeCell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        routeSelected = routes[indexPath.row]
+        performSegueWithIdentifier("ShowRoute", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowRoute",
+            let routeVC = segue.destinationViewController as? RouteViewController,
+            route = routeSelected {
+                routeVC.route = route
+        }
     }
 }
