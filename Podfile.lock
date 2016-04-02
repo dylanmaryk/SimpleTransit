@@ -1,13 +1,17 @@
 PODS:
   - Alamofire (3.3.0)
+  - CloudConvert (1.0.2):
+    - Alamofire (~> 3.0)
   - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - CloudConvert (~> 1.0)
   - UIColor_Hex_Swift (~> 1.9)
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  CloudConvert: 83c73ac499ce22508878e35dd4ccba9a855655db
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 
 COCOAPODS: 0.39.0

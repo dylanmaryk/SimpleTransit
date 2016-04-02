@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CloudConvert.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13199F7C9E2B5808027F1E4F94FFE336</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>54BE77894BD0D4DDF9BCD86B780B3A92</key>
+		<key>35100AAD693F7A77CAFD01832EBA945D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BD947C9EC95782AA3A7BF9806336ED01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E56A442E13E7F4082C3B05D2E61ABCD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

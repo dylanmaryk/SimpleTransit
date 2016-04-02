@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E8708C45A9D8D4C416F4E704'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = 'B9C3D023EF86703911272813'
+               BlueprintName = 'CloudConvert'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'CloudConvert.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
