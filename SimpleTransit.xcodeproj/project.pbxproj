@@ -13,6 +13,7 @@
 		FC419BCA1CADBAAC00FAE480 /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC419BC91CADBAAC00FAE480 /* RouteTableViewCell.swift */; };
 		FC5F46C71C963614004AB634 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5F46C61C963614004AB634 /* Route.swift */; };
 		FC6A02F81CB083FC002D2877 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A02F71CB083FC002D2877 /* RouteViewController.swift */; };
+		FC6A02FA1CB089CE002D2877 /* StopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A02F91CB089CE002D2877 /* StopTableViewCell.swift */; };
 		FCC30CB81C9616450046FFEF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB71C9616450046FFEF /* Stop.swift */; };
 		FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB91C9621CA0046FFEF /* Segment.swift */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
@@ -43,6 +44,7 @@
 		FC419BC91CADBAAC00FAE480 /* RouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 		FC5F46C61C963614004AB634 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = DataClasses/Route.swift; sourceTree = "<group>"; };
 		FC6A02F71CB083FC002D2877 /* RouteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		FC6A02F91CB089CE002D2877 /* StopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopTableViewCell.swift; sourceTree = "<group>"; };
 		FCC30CB71C9616450046FFEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = DataClasses/Stop.swift; sourceTree = "<group>"; };
 		FCC30CB91C9621CA0046FFEF /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segment.swift; path = DataClasses/Segment.swift; sourceTree = "<group>"; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +144,7 @@
 				FCF5624D1C95D6F900287B75 /* ViewController.swift */,
 				FC419BC91CADBAAC00FAE480 /* RouteTableViewCell.swift */,
 				FC6A02F71CB083FC002D2877 /* RouteViewController.swift */,
+				FC6A02F91CB089CE002D2877 /* StopTableViewCell.swift */,
 				FCF5626B1C95D7A800287B75 /* DataModel.swift */,
 				FCF5624F1C95D6F900287B75 /* Main.storyboard */,
 				FCF562521C95D6F900287B75 /* Assets.xcassets */,
@@ -320,6 +323,7 @@
 				FC5F46C71C963614004AB634 /* Route.swift in Sources */,
 				FC6A02F81CB083FC002D2877 /* RouteViewController.swift in Sources */,
 				FC419BCA1CADBAAC00FAE480 /* RouteTableViewCell.swift in Sources */,
+				FC6A02FA1CB089CE002D2877 /* StopTableViewCell.swift in Sources */,
 				FCF5626C1C95D7A800287B75 /* DataModel.swift in Sources */,
 				FCC30CB81C9616450046FFEF /* Stop.swift in Sources */,
 			);
