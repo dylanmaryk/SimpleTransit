@@ -17,6 +17,43 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
         return route.segments.count
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerHeight = self.tableView(tableView, heightForHeaderInSection: section)
+        let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, headerHeight))
+        
+        let segment = route.segments[section]
+        
+        let travelModeX: CGFloat = 8
+        let travelModeWidth = headerHeight - (travelModeX * 2)
+        let travelModeImageView = UIImageView(frame: CGRectMake(travelModeX, travelModeX, travelModeWidth, travelModeWidth))
+        
+        ImageConverter.imageForSVGAtURL(segment.iconURL) { (image: UIImage?) -> Void in
+            travelModeImageView.image = image
+        }
+        
+        let segmentX = (travelModeX * 2) + travelModeWidth
+        let segmentWidth = tableView.frame.size.width - segmentX - travelModeX
+        let segmentLabel = UILabel(frame: CGRectMake(segmentX, travelModeX, segmentWidth, travelModeWidth))
+        
+        let numStops = segment.numStops
+        let numStopsText = numStops == 1 ? "\(numStops) stop" : "\(numStops) stops"
+        
+        if let description = segment.description {
+            segmentLabel.text = description + ": " + numStopsText
+        } else {
+            segmentLabel.text = numStopsText
+        }
+        
+        headerView.backgroundColor = segment.color
+        headerView.addSubview(travelModeImageView)
+        headerView.addSubview(segmentLabel)
+        return headerView
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return route.segments[section].stops.count
     }

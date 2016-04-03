@@ -16,6 +16,7 @@
 		FC6A03081CB08CA5002D2877 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A03061CB08CA5002D2877 /* ViewController.swift */; };
 		FC6A030C1CB08CDE002D2877 /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A030A1CB08CDE002D2877 /* RouteTableViewCell.swift */; };
 		FC6A030D1CB08CDE002D2877 /* StopTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A030B1CB08CDE002D2877 /* StopTableViewCell.swift */; };
+		FC6A03101CB1D6E5002D2877 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A030F1CB1D6E5002D2877 /* ImageConverter.swift */; };
 		FCC30CB81C9616450046FFEF /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB71C9616450046FFEF /* Stop.swift */; };
 		FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCC30CB91C9621CA0046FFEF /* Segment.swift */; };
 		FCF5624C1C95D6F900287B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF5624B1C95D6F900287B75 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		FC6A03061CB08CA5002D2877 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		FC6A030A1CB08CDE002D2877 /* RouteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteTableViewCell.swift; path = CellViews/RouteTableViewCell.swift; sourceTree = "<group>"; };
 		FC6A030B1CB08CDE002D2877 /* StopTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StopTableViewCell.swift; path = CellViews/StopTableViewCell.swift; sourceTree = "<group>"; };
+		FC6A030F1CB1D6E5002D2877 /* ImageConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageConverter.swift; path = ImageConverter/ImageConverter.swift; sourceTree = "<group>"; };
 		FCC30CB71C9616450046FFEF /* Stop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stop.swift; path = DataClasses/Stop.swift; sourceTree = "<group>"; };
 		FCC30CB91C9621CA0046FFEF /* Segment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Segment.swift; path = DataClasses/Segment.swift; sourceTree = "<group>"; };
 		FCF562481C95D6F900287B75 /* SimpleTransit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTransit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,14 @@
 			name = CellViews;
 			sourceTree = "<group>";
 		};
+		FC6A030E1CB1D6B3002D2877 /* ImageConverter */ = {
+			isa = PBXGroup;
+			children = (
+				FC6A030F1CB1D6E5002D2877 /* ImageConverter.swift */,
+			);
+			name = ImageConverter;
+			sourceTree = "<group>";
+		};
 		FC7647F01CA014A80033B219 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 				FC6A03091CB08CD6002D2877 /* CellViews */,
 				FCC30CB61C96162F0046FFEF /* DataClasses */,
 				FC6A02FD1CB08BD3002D2877 /* DataModel */,
+				FC6A030E1CB1D6B3002D2877 /* ImageConverter */,
 				FCF5624B1C95D6F900287B75 /* AppDelegate.swift */,
 				FCF5624F1C95D6F900287B75 /* Main.storyboard */,
 				FCF562521C95D6F900287B75 /* Assets.xcassets */,
@@ -340,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6A03101CB1D6E5002D2877 /* ImageConverter.swift in Sources */,
 				FC6A03081CB08CA5002D2877 /* ViewController.swift in Sources */,
 				FC6A030C1CB08CDE002D2877 /* RouteTableViewCell.swift in Sources */,
 				FCC30CBA1C9621CA0046FFEF /* Segment.swift in Sources */,
