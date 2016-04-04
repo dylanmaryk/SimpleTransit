@@ -42,8 +42,12 @@ class RouteViewController: UIViewController, UITableViewDataSource, UITableViewD
         let numStops = segment.numStops
         let numStopsText = numStops == 1 ? "\(numStops) stop" : "\(numStops) stops"
         
-        if let description = segment.description {
-            segmentLabel.text = description + ": " + numStopsText
+        if let name = segment.name {
+            if let description = segment.description {
+                segmentLabel.text = "\(name) to \(description): \(numStopsText)"
+            } else {
+                segmentLabel.text = "\(name): \(numStopsText)"
+            }
         } else {
             segmentLabel.text = numStopsText
         }
