@@ -12,6 +12,7 @@ import Foundation
 class Stop {
     var location: CLLocation?
     var dateTime: NSDate?
+    var dateTimeFormatted: String?
     var name: String?
     
     init(lat: Double?, lng: Double?, dateTime dateTimeString: String?, name: String?) {
@@ -26,6 +27,11 @@ class Stop {
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
             dateTime = dateFormatter.dateFromString(dateTimeStringToConvert) // Date differs from original data according to timezone
+            
+            if let dateTimeFromString = dateTime {
+                dateFormatter.dateFormat = "HH:mm"
+                dateTimeFormatted = dateFormatter.stringFromDate(dateTimeFromString)
+            }
         }
     }
     
@@ -38,6 +44,7 @@ class Stop {
         LocationManager().reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
             if let geocodeInfo = reverseGeocodeInfo,
                 address = geocodeInfo["formattedAddress"] as? String {
+                    self.name = address
                     completion(name: address)
             } else {
                 completion(name: nil)
