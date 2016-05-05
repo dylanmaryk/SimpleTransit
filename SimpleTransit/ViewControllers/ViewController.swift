@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "ShowRoute",
             let routeVC = segue.destinationViewController as? RouteViewController,
             route = routeSelected {
-                routeVC.route = route
+            routeVC.route = route
         }
     }
 }

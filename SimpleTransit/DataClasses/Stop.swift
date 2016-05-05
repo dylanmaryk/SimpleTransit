@@ -20,7 +20,7 @@ class Stop {
         
         if let latToConvert = lat,
             lngToConvert = lng {
-                location = CLLocation(latitude: latToConvert, longitude: lngToConvert)
+            location = CLLocation(latitude: latToConvert, longitude: lngToConvert)
         }
         
         if let dateTimeStringToConvert = dateTimeString {
@@ -44,8 +44,8 @@ class Stop {
         LocationManager().reverseGeocodeLocationWithCoordinates(existingLocation) { (reverseGeocodeInfo, placemark, error) -> Void in
             if let geocodeInfo = reverseGeocodeInfo,
                 address = geocodeInfo["formattedAddress"] as? String {
-                    self.name = address
-                    completion(name: address)
+                self.name = address
+                completion(name: address)
             } else {
                 completion(name: nil)
             }

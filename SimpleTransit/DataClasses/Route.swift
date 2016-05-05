@@ -30,8 +30,8 @@ class Route {
         
         if let priceCurrency = price?.currency,
             priceAmount = price?.amount {
-                let priceAmountString = NSString(format: " %.2f", priceAmount) as String
-                priceFormatted = priceCurrency + priceAmountString
+            let priceAmountString = NSString(format: " %.2f", priceAmount) as String
+            priceFormatted = priceCurrency + priceAmountString
         }
         
         createJourneyTime();
