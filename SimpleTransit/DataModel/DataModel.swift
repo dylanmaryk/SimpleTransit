@@ -8,6 +8,7 @@
 
 import Alamofire
 import Foundation
+import SwiftyJSON
 
 protocol DataModelDelegate: class {
     func routesUpdated(routes: [Route])
@@ -18,67 +19,60 @@ class DataModel {
     
     func updateRoutes() {
         Alamofire.request(.GET, "https://raw.githubusercontent.com/allyapp/transit-app-task/master/data.json").responseJSON { response in
-            guard let JSON = response.result.value as? [String: AnyObject],
-                JSONRoutes = JSON["routes"] as? [[String: AnyObject]] else {
+            guard let responseValue = response.result.value else {
                     return
             }
             
+            let json = JSON(responseValue)
+            
             var routes = [Route]()
             
-            for JSONRoute in JSONRoutes {
-                let type = JSONRoute["type"] as? String
-                var providerName = JSONRoute["provider"] as? String
+            for jsonRoute in json["routes"].arrayValue {
+                let type = jsonRoute["type"].string
+                
+                var providerName = jsonRoute["provider"].string
                 var providerURL: String?
                 var providerIconURL: String?
                 
                 if let validProvider = providerName,
-                    JSONProviderAttributes = JSON["provider_attributes"] as? [String: [String: String]],
-                    JSONProviderAttribute = JSONProviderAttributes[validProvider] {
-                        if let iconURL = JSONProviderAttribute["provider_icon_url"] {
-                            providerIconURL = iconURL
-                        }
-                    
-                        if let iTunesURL = JSONProviderAttribute["ios_itunes_url"],
-                            displayName = JSONProviderAttribute["display_name"] {
-                                providerName = displayName
-                                providerURL = iTunesURL
-                        }
+                    jsonProviderAttribute = json["provider_attributes"][validProvider].dictionary {
+                        providerName = jsonProviderAttribute["display_name"]?.string
+                        providerURL = jsonProviderAttribute["ios_itunes_url"]?.string
+                        providerIconURL = jsonProviderAttribute["provider_icon_url"]?.string
                 }
                 
                 var segments = [Segment]()
                 
-                if let JSONSegments = JSONRoute["segments"] as? [[String: AnyObject]] {
-                    for JSONSegment in JSONSegments {
-                        let segmentName = JSONSegment["name"] as? String
-                        var stops = [Stop]()
-                        
-                        if let JSONStops = JSONSegment["stops"] as? [[String: AnyObject]] {
-                            for JSONStop in JSONStops {
-                                let lat = JSONStop["lat"] as? Double
-                                let lng = JSONStop["lng"] as? Double
-                                let dateTime = JSONStop["datetime"] as? String
-                                let stopName = JSONStop["name"] as? String
-                                let stop = Stop(lat: lat, lng: lng, dateTime: dateTime, name: stopName)
-                                stops.append(stop)
-                            }
-                        }
-                        
-                        let travelMode = JSONSegment["travel_mode"] as? String
-                        let description = JSONSegment["description"] as? String
-                        let color = JSONSegment["color"] as? String
-                        let iconURL = JSONSegment["icon_url"] as? String
-                        let polyline = JSONSegment["polyline"] as? String // Temporarily just hold as string
-                        let segment = Segment(name: segmentName, stops: stops, travelMode: travelMode, description: description, color: color, iconURL: iconURL, polyline: polyline)
-                        segments.append(segment)
+                for jsonSegment in jsonRoute["segments"].arrayValue {
+                    let segmentName = jsonSegment["name"].string
+                    
+                    var stops = [Stop]()
+                    
+                    for jsonStop in jsonSegment["stops"].arrayValue {
+                        let lat = jsonStop["lat"].double
+                        let lng = jsonStop["lng"].double
+                        let dateTime = jsonStop["datetime"].string
+                        let stopName = jsonStop["name"].string
+                        let stop = Stop(lat: lat, lng: lng, dateTime: dateTime, name: stopName)
+                        stops.append(stop)
                     }
+                    
+                    let travelMode = jsonSegment["travel_mode"].string
+                    let description = jsonSegment["description"].string
+                    let color = jsonSegment["color"].string
+                    let iconURL = jsonSegment["icon_url"].string
+                    let polyline = jsonSegment["polyline"].string // Temporarily just hold as string
+                    let segment = Segment(name: segmentName, stops: stops, travelMode: travelMode, description: description, color: color, iconURL: iconURL, polyline: polyline)
+                    segments.append(segment)
                 }
                 
-                let properties = JSONRoute["properties"] as? [String: AnyObject] // Temporarily just hold arbitrary data
-                var price: (currency: String, amount: Double)?
+                let properties = jsonRoute["properties"].dictionaryObject // Temporarily just hold arbitrary data
                 
-                if let validPrice = JSONRoute["price"] as? [String: AnyObject],
-                    currency = validPrice["currency"] as? String,
-                    amount = validPrice["amount"] as? Double {
+                var price: (currency: String, amount: Double)?
+                let validPrice = jsonRoute["price"]
+                
+                if let currency = validPrice["currency"].string,
+                    amount = validPrice["amount"].double {
                         price = (currency, amount)
                 }
                 
