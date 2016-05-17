@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '30A73F884D36469285BFACBD'
-               BlueprintName = 'UIColor_Hex_Swift'
+               BlueprintIdentifier = '572D1C0268B4002459DA515B'
+               BlueprintName = 'Polyline'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'UIColor_Hex_Swift.framework'>
+               BuildableName = 'Polyline.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -1,13 +1,15 @@
 PODS:
-  - Alamofire (3.3.1)
+  - Alamofire (3.4.0)
   - CloudConvert (1.0.2):
     - Alamofire (~> 3.0)
+  - Polyline (3.0.0)
   - SwiftyJSON (2.3.2)
   - UIColor_Hex_Swift (1.9)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - CloudConvert (~> 1.0)
+  - Polyline (~> 3.0)
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - UIColor_Hex_Swift (~> 1.9)
 
@@ -21,8 +23,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   CloudConvert: 83c73ac499ce22508878e35dd4ccba9a855655db
+  Polyline: 18026fd6675f754a15e70b4fd7ca01d0d156b6d7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   UIColor_Hex_Swift: 2ee747c0fed8b72b2135ef474b80a6921e489daa
 

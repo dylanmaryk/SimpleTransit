@@ -6,7 +6,9 @@
 //  Copyright © 2016 Dylan Maryk. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
+import Polyline
 import UIColor_Hex_Swift
 
 class Segment {
@@ -17,7 +19,7 @@ class Segment {
     var description: String?
     var color: UIColor?
     var iconURL: String?
-    var polyline: String?
+    var coordinates: [CLLocationCoordinate2D]?
     
     init(name: String?, stops: [Stop], travelMode: String?, description: String?, color colorString: String?, iconURL: String?, polyline: String?) {
         self.name = name
@@ -25,7 +27,6 @@ class Segment {
         self.travelMode = travelMode
         self.description = description
         self.iconURL = iconURL
-        self.polyline = polyline
         
         if stops.count > 0 {
             numStops = stops.count - 1
@@ -35,6 +36,10 @@ class Segment {
         
         if let colorStringToConvert = colorString {
             color = UIColor(rgba: colorStringToConvert)
+        }
+        
+        if let polylineToDecode = polyline {
+            coordinates = decodePolyline(polylineToDecode)
         }
     }
 }
