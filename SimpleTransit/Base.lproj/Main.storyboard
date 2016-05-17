@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zld-ke-UdM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zld-ke-UdM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -152,12 +153,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IOq-3N-bOc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="1iR-I7-Re9"/>
+                                    <constraint firstAttribute="width" secondItem="IOq-3N-bOc" secondAttribute="height" multiplier="2:1" id="cYe-kP-UXp"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="1iR-I7-Re9"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="xvx-Jx-C5I" id="6Lr-G4-lmh"/>
+                                </connections>
+                            </mapView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BXa-2Y-Cfw">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="364" width="600" height="236"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StopCell" rowHeight="66" id="1Eu-e3-uMw" customClass="StopTableViewCell" customModule="SimpleTransit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="66"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Eu-e3-uMw" id="QOA-xk-T9X">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
@@ -221,13 +237,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="BXa-2Y-Cfw" secondAttribute="trailing" id="KO0-gs-e6z"/>
-                            <constraint firstItem="BXa-2Y-Cfw" firstAttribute="leading" secondItem="Y9Z-2n-8f9" secondAttribute="leading" id="SV8-ae-PuV"/>
-                            <constraint firstItem="BXa-2Y-Cfw" firstAttribute="top" secondItem="Y9Z-2n-8f9" secondAttribute="top" id="VZz-vu-64b"/>
-                            <constraint firstItem="BXa-2Y-Cfw" firstAttribute="bottom" secondItem="p8z-so-KJs" secondAttribute="top" id="tao-Pq-o4i"/>
+                            <constraint firstItem="IOq-3N-bOc" firstAttribute="trailing" secondItem="BXa-2Y-Cfw" secondAttribute="trailing" id="70c-Q6-uoB"/>
+                            <constraint firstItem="BXa-2Y-Cfw" firstAttribute="top" secondItem="IOq-3N-bOc" secondAttribute="bottom" id="HEQ-dS-EfM"/>
+                            <constraint firstItem="IOq-3N-bOc" firstAttribute="leading" secondItem="BXa-2Y-Cfw" secondAttribute="leading" id="Ltl-mu-B5g"/>
+                            <constraint firstAttribute="trailing" secondItem="IOq-3N-bOc" secondAttribute="trailing" id="Se1-BF-aMa"/>
+                            <constraint firstItem="BXa-2Y-Cfw" firstAttribute="bottom" secondItem="p8z-so-KJs" secondAttribute="top" id="XMB-77-fq7"/>
+                            <constraint firstItem="IOq-3N-bOc" firstAttribute="top" secondItem="AtC-v3-w1k" secondAttribute="bottom" id="hEp-oW-68l"/>
+                            <constraint firstItem="IOq-3N-bOc" firstAttribute="leading" secondItem="Y9Z-2n-8f9" secondAttribute="leading" id="oCz-1o-olE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="routeMapView" destination="IOq-3N-bOc" id="CQx-IR-pBo"/>
                         <outlet property="stopTableView" destination="BXa-2Y-Cfw" id="ahE-oE-Hf7"/>
                     </connections>
                 </viewController>

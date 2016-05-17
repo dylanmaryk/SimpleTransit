@@ -6,6 +6,7 @@
 //  Copyright © 2016 Dylan Maryk. All rights reserved.
 //
 
+import CoreLocation
 import Foundation
 
 class Route {
@@ -18,6 +19,19 @@ class Route {
     var price: (currency: String, amount: Double)?
     var priceFormatted: String?
     var journeyTime: Int?
+    var coordinates: [CLLocationCoordinate2D] {
+        get {
+            var routeCoordinates = [CLLocationCoordinate2D]()
+            
+            for segment in segments {
+                if let coordinates = segment.coordinates {
+                    routeCoordinates.appendContentsOf(coordinates)
+                }
+            }
+            
+            return routeCoordinates
+        }
+    }
     
     init(type: String?, providerName: String?, providerURL: String?, providerIconURL: String?, segments: [Segment], properties: [String: AnyObject]?, price: (currency: String, amount: Double)?) {
         self.type = type

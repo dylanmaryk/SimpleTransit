@@ -6,12 +6,34 @@
 //  Copyright © 2016 Dylan Maryk. All rights reserved.
 //
 
+import MapKit
 import UIKit
 
-class RouteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var routeMapView: MKMapView!
     @IBOutlet var stopTableView: UITableView!
     
     var route: Route!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        var coordinates = route.coordinates
+        let polyline = MKPolyline(coordinates: &coordinates, count: coordinates.count)
+        routeMapView.addOverlay(polyline)
+        routeMapView.visibleMapRect = routeMapView.mapRectThatFits(polyline.boundingMapRect)
+    }
+    
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.blueColor()
+            polylineRenderer.lineWidth = 5
+            return polylineRenderer
+        }
+        
+        return MKPolylineRenderer()
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return route.segments.count
