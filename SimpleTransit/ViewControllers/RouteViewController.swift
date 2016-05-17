@@ -21,7 +21,8 @@ class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataS
         var coordinates = route.coordinates
         let polyline = MKPolyline(coordinates: &coordinates, count: coordinates.count)
         routeMapView.addOverlay(polyline)
-        routeMapView.visibleMapRect = routeMapView.mapRectThatFits(polyline.boundingMapRect)
+        let edgePadding = UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100)
+        routeMapView.visibleMapRect = routeMapView.mapRectThatFits(polyline.boundingMapRect, edgePadding: edgePadding)
     }
     
     func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
