@@ -61,7 +61,7 @@ class DataModel {
                     let description = jsonSegment["description"].string
                     let color = jsonSegment["color"].string
                     let iconURL = jsonSegment["icon_url"].string
-                    let polyline = jsonSegment["polyline"].string // Temporarily just hold as string
+                    let polyline = jsonSegment["polyline"].string
                     let segment = Segment(name: segmentName, stops: stops, travelMode: travelMode, description: description, color: color, iconURL: iconURL, polyline: polyline)
                     segments.append(segment)
                 }
