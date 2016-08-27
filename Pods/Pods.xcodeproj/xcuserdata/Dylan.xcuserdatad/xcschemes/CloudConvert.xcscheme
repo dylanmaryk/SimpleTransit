@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1906A9272A779067860131CF'
+               BlueprintIdentifier = '71FF4B6BE1549424D61389F9'
                BlueprintName = 'CloudConvert'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'CloudConvert.framework'>
