@@ -13,10 +13,14 @@ class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataS
     @IBOutlet weak var routeMapView: MKMapView!
     @IBOutlet var stopTableView: UITableView!
     
-    var route: Route!
+    var route: Route?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let route = route else {
+            return
+        }
         
         var coordinates = route.coordinates
         let polyline = MKPolyline(coordinates: &coordinates, count: coordinates.count)
@@ -37,6 +41,10 @@ class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataS
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        guard let route = route else {
+            return 0
+        }
+        
         return route.segments.count
     }
     
@@ -47,6 +55,10 @@ class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerHeight = self.tableView(tableView, heightForHeaderInSection: section)
         let headerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, headerHeight))
+        
+        guard let route = route else {
+            return headerView
+        }
         
         let segment = route.segments[section]
         
@@ -82,13 +94,21 @@ class RouteViewController: UIViewController, MKMapViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let route = route else {
+            return 0
+        }
+        
         return route.segments[section].stops.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let stopCell = tableView.dequeueReusableCellWithIdentifier("StopCell", forIndexPath: indexPath) as! StopTableViewCell
-        let stop = route.segments[indexPath.section].stops[indexPath.row]
-        stopCell.setupCell(stop)
+        
+        if let route = route {
+            let stop = route.segments[indexPath.section].stops[indexPath.row]
+            stopCell.setupCell(stop)
+        }
+        
         return stopCell
     }
 }
